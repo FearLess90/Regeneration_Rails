@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  checkinDate: 2013-04-29
+  estimatedCompletitionDate: 2013-04-29
+  isComplete: false
+  completitionDate: 2013-04-29
+  price: 9.99
+
+two:
+  checkinDate: 2013-04-29
+  estimatedCompletitionDate: 2013-04-29
+  isComplete: false
+  completitionDate: 2013-04-29
+  price: 9.99

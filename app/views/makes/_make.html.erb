@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to make.id, make_path(make) %></td>
+  <td><%= make.name %></td>
+  <td><%= make.description %></td>
+  <td><%=l make.created_at, :format => :short %></td>
+  <td>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_make_path(make), :class => 'btn btn-mini' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                make_path(make),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

@@ -1,0 +1,24 @@
+<%- model_class = Make -%>
+<div class="page-header">
+  <h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody id="makes">
+  	<%= render @makes %>  
+  </tbody>
+</table>
+<div id="paginator">
+	<%= paginate @makes, :remote => true %> 
+</div>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_make_path,
+            :class => 'btn btn-primary' %>
