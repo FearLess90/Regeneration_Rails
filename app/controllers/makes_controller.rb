@@ -1,8 +1,7 @@
 class MakesController < ApplicationController
   
   def index
-  	@makes = Make.order("created_at").page(params[:page]).per(3)
-  	
+  	@makes = Make.order("created_at").page(params[:page]).per(5)
   end
 
   def new 

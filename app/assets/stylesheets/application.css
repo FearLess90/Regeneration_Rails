@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+.pretty th .current {
+  padding-right: 12px !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  background-image: url(/images/bg.gif) !important; 
+}
+.pretty th .asc { 
+  background-image: url(/images/asc.gif) !important; 
+}
+
+.pretty th .desc { 
+  background-image: url(/images/desc.gif) !important; 
+}
