@@ -1,0 +1,46 @@
+/**
+ * Created By Pasquale Lupia
+ * Date: 5/2/13
+ * Time: 3:20 PM
+ */
+
+(function( $ ) {
+    $.fn.railsTableSorter = function(options) {
+        var settings = $.extend( {
+            'controller': "",
+            'action': ""
+        }, options);
+
+        var class_name = $(this).attr("class");
+        var current = $(this).index();
+        var page = $(".active").text();
+        $("#MakesTable th").each(function(index){
+            if (index != current) {
+                $(this).removeClass();
+                if (index != $("#MakesTable th").length -1 ) {
+                    $(this).addClass("header");
+                }
+            }
+        });
+        var url;
+        if (class_name == "header"){
+            url = "/" + options.controller + "/" + options.action + ".js?column=" + $(this).text().replace(/ /g, '_').toLowerCase() + "&direction=asc&page=" + page;
+            $(this).removeClass("header")
+            $(this).addClass("headerSortDown");
+        }
+        else if (class_name == "headerSortDown") {
+            url = "/" + options.controller + "/" + options.action + ".js?column=" + $(this).text().replace(/ /g, '_').toLowerCase() + "&direction=desc&page=" + page;
+            $(this).removeClass("headerSortDown")
+            $(this).addClass("headerSortUp");
+        }
+        else {
+            url = "/" + options.controller + "/" + options.action + ".js?column=created_at&direction=asc&page=" + page;
+            $(this).removeClass("headerSortUp");
+            $(this).addClass("header");
+        }
+        $.ajax({
+            type: "POST",
+            url: url
+        })
+    };
+})( jQuery );

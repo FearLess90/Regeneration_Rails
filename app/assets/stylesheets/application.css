@@ -12,16 +12,23 @@
  *= require_tree .
  */
 
-.pretty th .current {
-  padding-right: 12px !important;
-  background-repeat: no-repeat !important;
-  background-position: right center !important;
-  background-image: url(/images/bg.gif) !important; 
-}
-.pretty th .asc { 
-  background-image: url(/images/asc.gif) !important; 
+.header {
+    background-image: url('bg.gif');
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
 }
 
-.pretty th .desc { 
-  background-image: url(/images/desc.gif) !important; 
+.headerSortUp{
+    background-image: url('asc.gif');
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+.headerSortDown{
+    background-image: url('desc.gif');
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
 }

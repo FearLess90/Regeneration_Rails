@@ -1,6 +1,7 @@
 Regeneration::Application.routes.draw do
   get "makes/index"
 
+  match 'makes/sort' => 'makes#sort'
   resources :makes
   resources :clients
   resources :cartridges
