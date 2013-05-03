@@ -1,0 +1,17 @@
+<tr data-model="<%= cartridges_path(cartridge) %>">
+  <td><%= link_to cartridge.id, cartridge_path(cartridge) %></td>
+  <td><%= cartridge.name %></td>
+  <td><%= cartridge.description %></td>
+  <td><%= cartridge.make.name %></td>
+  <td><%= cartridge.cartridge_type %></td>
+  <td><%=l cartridge.created_at, :format => :short %></td>
+  <td>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_cartridge_path(cartridge), :class => 'btn btn-mini' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                cartridge_path(cartridge),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this make?')) },
+                :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

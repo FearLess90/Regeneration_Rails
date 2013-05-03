@@ -8,16 +8,16 @@
     $.fn.railsTableSorter = function(options) {
         var settings = $.extend( {
             'controller': "",
-            'action': ""
+            'action': "" ,
+            'table_id': ""
         }, options);
-
         var class_name = $(this).attr("class");
         var current = $(this).index();
         var page = $(".active").text();
-        $("#MakesTable th").each(function(index){
+        $("#" + options.table_id + " th").each(function(index){
             if (index != current) {
                 $(this).removeClass();
-                if (index != $("#MakesTable th").length -1 ) {
+                if (index != $("#" + options.table_id + " th").length -1 ) {
                     $(this).addClass("header");
                 }
             }

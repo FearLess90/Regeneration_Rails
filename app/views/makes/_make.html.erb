@@ -1,4 +1,4 @@
-<tr>
+<tr data-model="<%= make_path(make) %>">
   <td><%= link_to make.id, make_path(make) %></td>
   <td><%= make.name %></td>
   <td><%= make.description %></td>
@@ -9,7 +9,7 @@
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 make_path(make),
                 :method => :delete,
-                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this make?')) },
                 :class => 'btn btn-mini btn-danger' %>
   </td>
 </tr>

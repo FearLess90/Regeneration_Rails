@@ -1,8 +1,18 @@
 Regeneration::Application.routes.draw do
+  get "cartridges/index"
+
+  get "cartridges/new"
+
+  get "cartridges/show"
+
+  get "cartridges/edit"
+
   get "makes/index"
 
   match 'makes/sort' => 'makes#sort'
   resources :makes
+
+  match 'cartridges/sort' => 'cartridges#sort'
   resources :clients
   resources :cartridges
   resources :tasks

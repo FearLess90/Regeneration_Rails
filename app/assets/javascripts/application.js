@@ -15,3 +15,13 @@
 //= require twitter/bootstrap
 //= require RailsTableSorter
 //= require_tree .
+
+$(document).ready(function(){
+   $("tr td").dblclick(function(){
+       var model = $(this).parent().attr('data-model');
+       $("body").fadeOut();
+       setTimeout(function() {
+           window.location.href = model;
+       }, 400);
+   });
+});

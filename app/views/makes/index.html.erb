@@ -1,3 +1,15 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("th").click(function() {
+            $(this).railsTableSorter({
+                controller : 'makes',
+                action: 'sort',
+                table_id: "MakesTable"
+            });
+        });
+    });
+</script>
+
 <div class="page-header">
   <h2><%=t '.title', :default => Make.model_name.human.pluralize %></h2>
 </div>

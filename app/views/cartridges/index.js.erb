@@ -1,0 +1,2 @@
+$('#cartridges').html('<%= escape_javascript render(@cartridges) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@cartridges, :remote => true).to_s) %>');

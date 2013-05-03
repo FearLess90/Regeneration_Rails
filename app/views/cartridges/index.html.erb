@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("th").click(function() {
+            $(this).railsTableSorter({
+                controller : 'cartridges',
+                action: 'sort',
+                table_id: "CartridgesTable"
+            });
+        });
+    });
+</script>
+<div class="page-header">
+  <h2><%=t '.title', :default => Cartridge.model_name.human.pluralize %></h2>
+</div>
+
+<table id="CartridgesTable" class="table table-striped">
+  <thead>
+  <tr>
+    <th class="header"><%= Cartridge.human_attribute_name(:id) %></th>
+    <th class="header"><%= Cartridge.human_attribute_name(:name) %></th>
+    <th class="header"><%= Cartridge.human_attribute_name(:description) %></th>
+    <th class="header"><%= Cartridge.human_attribute_name(:make) %></th>
+    <th class="header"><%= Cartridge.human_attribute_name(:cartridge_type) %></th>
+    <th class="header"><%= Cartridge.human_attribute_name(:created_at) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody id="cartridges">
+    <%= render @cartridges %>
+  </tbody>
+</table>
+<div id="paginator">
+  <%= paginate @cartridges, :remote => true %>
+</div>
+<script>
+
+</script>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cartridge_path,
+            :class => 'btn btn-primary' %>
+

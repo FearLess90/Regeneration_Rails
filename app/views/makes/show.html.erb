@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>Make <small>Details</small></legend>
+  <dl class="dl-horizontal">
+    <dt>Name:</dt>
+    <dd><%= @make.name %></dd>
+
+    <% unless @make.description.blank?  %>
+        <dt>Description:</dt>
+        <dd><%= @make.description%></dd>
+    <% end %>
+
+    <dt>Createad At:</dt>
+    <dd><%= @make.created_at.strftime('%d %B %Y') %></dd>
+  </dl>
+</fieldset>
+<fieldset>
+  <legend>Cartridges <small>List</small></legend>
+  <dl class="dl-horizontal">
+
+  </dl>
+</fieldset>
