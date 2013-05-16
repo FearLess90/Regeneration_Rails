@@ -21,10 +21,11 @@ class CartridgesController < ApplicationController
   end
 
   def show
-
+     @cartridge = Cartridge.find(params[:id])
   end
 
   def edit
+    @cartridge = Cartridge.find(params[:id])
   end
 
   def update
@@ -36,6 +37,14 @@ class CartridgesController < ApplicationController
       redirect_to cartridges_path, notice: "Cartridge #{cartridge.name} updated."
     end
   end
+  def destroy
+    cartridge = Cartridge.find(params[:id])
+    unless cartridge.nil?
+      cartridge.destroy 
+      redirect_to cartridges_path, notice: "Cartridge #{cartridge.name} successfully Destroyed."  
+    end
+  end
+
   def sort
     respond_to do |format|
       format.html {redirect_to '/'}

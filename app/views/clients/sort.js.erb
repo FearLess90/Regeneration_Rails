@@ -1,0 +1,2 @@
+$("#ClientsTable tbody").html("<%= escape_javascript(render @clients) %>");
+$('#paginator').html('<%= escape_javascript(paginate(@clients, :remote => true, :params => {column:session[:column], direction:session[:direction]}).to_s) %>');

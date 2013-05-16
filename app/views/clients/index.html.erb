@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("th").click(function() {
+            $(this).railsTableSorter({
+                controller : 'clients',
+                action: 'sort',
+                table_id: "ClientsTable"
+            });
+        });
+    });
+</script>
+
+<div class="page-header">
+  <h2><%=t '.title', :default => Client.model_name.human.pluralize %></h2>
+</div>
+
+<table id="ClientsTable" class="table table-striped">
+  <thead>
+    <tr>
+      <th class="header"><%= Client.human_attribute_name(:id) %></th>
+      <th class="header"><%= Client.human_attribute_name(:firstName) %></th>
+      <th class="header"><%= Client.human_attribute_name(:lastName) %></th>
+      <th class="header"><%= Client.human_attribute_name(:companyName) %></th>
+      <th class="header"><%= Client.human_attribute_name(:isVendor) %></th>
+      <th class="header"><%= Client.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody id="clients">
+  	<%= render @clients %>  
+  </tbody>
+</table>
+<div id="paginator">
+	<%= paginate @clients, :remote => true %>
+</div>
+<script>
+
+</script>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_client_path,
+            :class => 'btn btn-primary' %>
+

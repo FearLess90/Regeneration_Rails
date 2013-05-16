@@ -1,0 +1,2 @@
+$("#CartridgesTable tbody").html("<%= escape_javascript(render @cartridges) %>");
+$('#paginator').html('<%= escape_javascript(paginate(@cartridges, :remote => true, :params => {column:session[:column], direction:session[:direction]}).to_s) %>');

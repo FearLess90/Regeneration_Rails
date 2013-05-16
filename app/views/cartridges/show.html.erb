@@ -1,2 +1,15 @@
-<h1>Cartridges#show</h1>
-<p>Find me in app/views/cartridges/show.html.erb</p>
+<fieldset>
+  <legend>Cartridge <small>Details</small></legend>
+  <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @cartridge.id %></dd>
+    <dt>Name:</dt>
+    <dd><%= @cartridge.name %></dd>
+    <% unless @cartridge.description.blank?  %>
+        <dt>Description:</dt>
+        <dd><%= @cartridge.description%></dd>
+    <% end %>
+    <dt>Createad At:</dt>
+    <dd><%= @cartridge.created_at.strftime('%d %B %Y') %></dd>
+  </dl>
+</fieldset>

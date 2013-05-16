@@ -1,3 +1,7 @@
+require 'JSON'
+require 'open-uri'
+require 'net/http'
+
 class MakesController < ApplicationController
   
   def index
@@ -26,6 +30,10 @@ class MakesController < ApplicationController
 
   def show
       @make = Make.find(params[:id])
+      get_image @make
+      @cartridges = @make.cartridges.page(params[:page]).per(5)
+      #@response = JSON(open('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + @make.name + '+logo').read)
+      
   end
 
   def edit
@@ -58,6 +66,34 @@ class MakesController < ApplicationController
         session[:direction] = params[:direction]
         @makes = Make.order(params[:column]+ " " + params[:direction]).page(params[:page]).per(5)
       }
+    end
+  end
+
+  def sort_cartridges
+    respond_to do |format|
+      format.html {redirect_to '/'}
+      format.js {
+        session[:column] = params[:column]
+        session[:direction] = params[:direction]
+        @cartridges = Make.find(params[:id]).cartridges.order(params[:column]+ " " + params[:direction]).page(params[:page]).per(5)
+      }
+    end
+  end
+
+  def get_image(make)
+    if make.image_url.nil?
+      response = JSON(open('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + @make.name + '+logo').read)
+      make.image_url = response['responseData']['results'][0]['url']
+      make.save
+    else
+      url = URI.parse(make.image_url)
+      request = Net::HTTP.new(url.host, url.port)
+      response = request.request_head(url.path)
+      unless response.code == "200"
+        response = JSON(open('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + @make.name + '+logo').read)
+        make.image_url = response['responseData']['results'][0]['url']
+        make.save
+      end
     end
   end
 

@@ -1,0 +1,18 @@
+<fieldset>
+  <legend>Client <small>Details</small></legend>
+  <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @client.id %></dd>
+    <dt>Name:</dt>
+    <dd><%= @client.firstName + " " + @client.lastName %></dd>
+    <% unless @client.companyName.blank?  %>
+        <dt>Company Name:</dt>
+        <dd><%= @client.companyName%></dd>
+    <% end %>
+    <dt>Address:</dt>
+      <dd><%= @client.streetNumber + " " + @client.streetName %></dd>
+      <dd><%= @client.city + ", " + @client.postalCode %></dd>
+    <dt>Createad At:</dt>
+    <dd><%= @client.created_at.strftime('%d %B %Y') %></dd>
+  </dl>
+</fieldset>

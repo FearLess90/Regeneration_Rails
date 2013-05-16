@@ -1,0 +1,17 @@
+<tr data-model="<%= client_path(client) %>">
+  <td><%= link_to client.id, client_path(client) %></td>
+  <td><%= client.firstName %></td>
+  <td><%= client.lastName %></td>
+  <td><%= client.companyName %></td>  
+  <td><%= client.isVendor %></td>
+  <td><%=l client.created_at, :format => :short %></td>
+  <td>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_client_path(client), :class => 'btn btn-mini' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                client_path(client),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this client?')) },
+                :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

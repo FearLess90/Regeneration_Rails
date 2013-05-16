@@ -1,20 +1,16 @@
 Regeneration::Application.routes.draw do
-  get "cartridges/index"
-
-  get "cartridges/new"
-
-  get "cartridges/show"
-
-  get "cartridges/edit"
-
-  get "makes/index"
-
   match 'makes/sort' => 'makes#sort'
+  match 'makes/sort_cartridges' => 'makes#sort_cartridges'
   resources :makes
 
+  
   match 'cartridges/sort' => 'cartridges#sort'
-  resources :clients
   resources :cartridges
+  
+  match 'clients/sort' => 'clients#sort'
+  resources :clients
+  
+
   resources :tasks
   # The priority is based upon order of creation:
   # first created -> highest priority.

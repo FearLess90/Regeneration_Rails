@@ -1,4 +1,4 @@
-<tr data-model="<%= cartridges_path(cartridge) %>">
+<tr data-model="<%= cartridge_path(cartridge) %>">
   <td><%= link_to cartridge.id, cartridge_path(cartridge) %></td>
   <td><%= cartridge.name %></td>
   <td><%= cartridge.description %></td>
@@ -15,3 +15,5 @@
                 :class => 'btn btn-mini btn-danger' %>
   </td>
 </tr>
+
+

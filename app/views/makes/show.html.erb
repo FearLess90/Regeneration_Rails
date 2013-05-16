@@ -1,21 +1,49 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("th").click(function() {
+            $(this).railsTableSorter({
+                controller : 'makes',
+                action: 'sort_cartridges',
+                table_id: "CartridgesTable"
+            });
+        });
+    });
+</script>
 <fieldset>
   <legend>Make <small>Details</small></legend>
+  <img src="<%= @make.image_url %>" class="make-logo" />
   <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @make.id %></dd>
     <dt>Name:</dt>
     <dd><%= @make.name %></dd>
-
     <% unless @make.description.blank?  %>
         <dt>Description:</dt>
         <dd><%= @make.description%></dd>
     <% end %>
-
     <dt>Createad At:</dt>
     <dd><%= @make.created_at.strftime('%d %B %Y') %></dd>
   </dl>
 </fieldset>
 <fieldset>
   <legend>Cartridges <small>List</small></legend>
-  <dl class="dl-horizontal">
-
-  </dl>
+  <table id="CartridgesTable" class="table table-striped">
+    <thead>
+    <tr>
+      <th class="header"><%= Cartridge.human_attribute_name(:id) %></th>
+      <th class="header"><%= Cartridge.human_attribute_name(:name) %></th>
+      <th class="header"><%= Cartridge.human_attribute_name(:description) %></th>
+      <th class="header"><%= Cartridge.human_attribute_name(:make) %></th>
+      <th class="header"><%= Cartridge.human_attribute_name(:cartridge_type) %></th>
+      <th class="header"><%= Cartridge.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+    </thead>
+    <tbody id="cartridges">
+    <%= render partial: 'cartridges/cartridge', collection: @cartridges, as: 'cartridge'  %>
+    </tbody>
+  </table>
+  <div id="paginator">
+    <%= paginate @cartridges, :remote => true %>
+  </div>
 </fieldset>

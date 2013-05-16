@@ -1,0 +1,11 @@
+<%= simple_form_for(@client, :html => {:class => 'form-horizontal' }) do |f| %>
+    <%= f.input :firstName, label: 'First Name' %>
+    <%= f.input :lastName, label: 'Last Name' %>
+    <%= f.input :companyName, label: 'Company Name' %>
+    <%= f.input :streetNumber, label: 'Street Number' %>
+    <%= f.input :streetName, label: 'Street Name' %>
+    <%= f.input :city, label: 'City' %>
+    <%= f.input :postalCode, label: 'Postal Code' %>
+    <%= f.input :isVendor, label: 'Is a Vendor?' %>
+    <%= f.button :submit, :class => 'btn-success' %>
+<% end %>
