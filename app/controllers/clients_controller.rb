@@ -52,8 +52,26 @@ class ClientsController < ApplicationController
 	        session[:direction] = params[:direction]
 	        @clients = Client.order(params[:column]+ " " + params[:direction]).page(params[:page]).per(5)
 	      }
-    end
-  end
+    	end
+  	end
+
+  	def get_clients
+		@clients = Client.all.map{ |c| { id: c.id, name: c.firstName}}
+
+		respond_to do |format|
+			format.json { render :json => @clients}
+
+		end
+	end
+
+	def get_client
+		respond_to do |format|
+	      format.html {redirect_to '/'}
+	      format.js {
+	        @client = Client.find(params[:id])
+	      }
+    	end
+	end
 
 
 end

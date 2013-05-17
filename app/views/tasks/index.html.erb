@@ -1,0 +1,69 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#ClientDetails").hide();
+	    $("#tb_clients").typeahead({
+	        minLength: 1,
+	        source: function(query, process) {
+	        	objects = [];
+        		map = {};
+		        var $items = new Array;
+        		$items = [""];
+        		var data = <%= @clients.to_s.html_safe %>;
+		        // $.each(data, function(i, object) {
+          //   		map[object.name] = object;
+          //   		objects.push(object.name);
+        		// });
+        		// process(objects);
+        		$.map(data, function(data){
+                    var group;
+                    group = {
+                        id: data.id,
+                        name: data.name,                            
+                        toString: function () {
+                            return JSON.stringify(this);
+                            //return this.app;
+                        },
+                        toLowerCase: function () {
+                            return this.name.toLowerCase();
+                        },
+                        indexOf: function (string) {
+                            return String.prototype.indexOf.apply(this.name, arguments);
+                        },
+                        replace: function (string) {
+                            var value = '';
+                            value +=  this.name;
+                            if(typeof(this.level) != 'undefined') {
+                                value += ' <span class="pull-right muted">';
+                                value += this.level;
+                                value += '</span>';
+                            }
+                            return String.prototype.replace.apply('<div>' + value + '</div>', arguments);
+                        }
+                    };
+                    $items.push(group);
+                });
+
+                process($items);
+	    		
+	        },
+	        matcher: function (item) {
+			    if (item.toLowerCase().substring(0, this.query.trim().length) == this.query.toLowerCase().trim()) {
+			        return true;
+			    }
+			},
+			updater: function (item) {
+			    $.ajax({
+			            type: "POST",
+			            url: "/clients/get_client.js?id=" + JSON.parse(item).id
+		        });
+			}
+	    });
+	});
+</script>
+
+<label for="tb_clients">Please enter the client name:</label>
+<input id="tb_clients" type="text" data-provide="typeahead" />
+
+<div id="ClientDetails">
+
+</div>

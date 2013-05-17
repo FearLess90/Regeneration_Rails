@@ -6,7 +6,9 @@ Regeneration::Application.routes.draw do
   
   match 'cartridges/sort' => 'cartridges#sort'
   resources :cartridges
-  
+
+
+  match 'clients/get_client' => 'clients#get_client'
   match 'clients/sort' => 'clients#sort'
   resources :clients
   
