@@ -1,2 +1,3 @@
-$("#ClientDetails").html("<%= escape_javascript(render partial: 'tasks/client', :locals => {client: @client}) %>");
+$("#ClientDetails").html("<%= escape_javascript(render partial: 'client_show', :locals => {client: @client}) %>");
 $("#ClientDetails").fadeIn();
+$("#TasksDetails").fadeIn();

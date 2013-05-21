@@ -42,4 +42,4 @@ gem "sorting_table_for", '~> 0.3.0'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'

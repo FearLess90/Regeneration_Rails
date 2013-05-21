@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1483a74d-298f-49d3-9e6a-4bf87f232c12" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Regeneration.iml" afterPath="$PROJECT_DIR$/.idea/Regeneration.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="DELETED" beforePath="C:\Users\lupiap\RailsProjects\Regeneration\app\views\tasks\_client.html.erb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.less" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap_and_overrides.css.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/get_client.js.erb" afterPath="$PROJECT_DIR$/app/views/clients/get_client.js.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/index.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/show.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Regeneration.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1483a74d-298f-49d3-9e6a-4bf87f232c12" time="1368799802725" ignored="false" />
+    <file path="/Dummy.txt" changelist="1483a74d-298f-49d3-9e6a-4bf87f232c12" time="1369149382808" ignored="false" />
     <file path="/index.html.erb" changelist="1483a74d-298f-49d3-9e6a-4bf87f232c12" time="1367606952705" ignored="false" />
     <file path="/tablesorter.js" changelist="1483a74d-298f-49d3-9e6a-4bf87f232c12" time="1367499987566" ignored="false" />
     <file path="/makes.js.coffee" changelist="1483a74d-298f-49d3-9e6a-4bf87f232c12" time="1367513603323" ignored="false" />
@@ -102,7 +105,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/makes/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="171" selection-start="665" selection-end="665" vertical-scroll-proportion="0.34166667">
+            <state line="37" column="117" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.640327">
               <folding />
             </state>
           </provider>
@@ -158,8 +161,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="width" value="1460" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -382,12 +385,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Errors" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="FullScreen" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -632,7 +636,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
+    <frame x="-8" y="-8" width="1460" height="920" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -820,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/makes/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="171" selection-start="665" selection-end="665" vertical-scroll-proportion="0.34166667">
+        <state line="37" column="117" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.640327">
           <folding />
         </state>
       </provider>
