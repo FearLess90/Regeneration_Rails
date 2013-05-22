@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require twitter/bootstrap
 //= require RailsTableSorter
+//= require bootstrap-datepicker
 //= require_tree .
+//= require task
+
 
 
 $(document).on('dblclick', 'tr td', function(){

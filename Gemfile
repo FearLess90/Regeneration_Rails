@@ -24,10 +24,13 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
 gem 'paperclip'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'kaminari'
 gem "sorting_table_for", '~> 0.3.0'
+gem 'gon'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -42,4 +45,4 @@ gem "sorting_table_for", '~> 0.3.0'
 # gem 'capistrano'
 
 # To use debugger
-#gem 'debugger'
+gem 'debugger'

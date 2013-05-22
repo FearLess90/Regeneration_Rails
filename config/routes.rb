@@ -12,7 +12,7 @@ Regeneration::Application.routes.draw do
   match 'clients/sort' => 'clients#sort'
   resources :clients
   
-
+  match 'tasks/create' => 'tasks#create'
   resources :tasks
   # The priority is based upon order of creation:
   # first created -> highest priority.
