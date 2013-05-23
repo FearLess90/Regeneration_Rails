@@ -6,13 +6,29 @@ class TasksController < ApplicationController
 	end
 
 	def create 
+		counter = 0
+		params[:tasksjson].each do |t|
 
-		test = ActiveSupport::JSON.decode(params[:tasksjson].to_json)
-		test["results"].each do |cartridgeId, clientId|
-		  cartr = Cartridge.find(cartridgeId)
-		  debugger
+			task = Task.new(cartridge_id: t[:cartridgeId], client_id: t[:clientId], estimatedCompletitionDate: t[:completitionDate], checkinDate: t[:checkinDate]  )
+			if task.valid?
+				task.save
+				counter += 1
+			end
 		end
-		debugger
-		render :index
+		respond_to do |format|
+	      format.html {redirect_to '/'}
+	      format.js {
+	      	if counter == params[:tasksjson].length
+	      		@result = "everything ok"
+	      	else
+	      		@result = "only #{counter} tasks created out of #{params[:tasksjson].length}."
+	      	end
+
+	      	client_id = params[:tasksjson][0][:clientId]
+
+	      	@tasks = Task.find_all_by_client_id(client_id)
+
+	      }
+	  	end
 	end
 end

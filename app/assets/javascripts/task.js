@@ -76,7 +76,7 @@ $(document).ready(function() {
             accept: ".itemList",
             drop: function(event, ui) {
                 test = ui.draggable;
-                $( "<div data-item=" + ui.draggable.data("item")+ "></div>" ).text(ui.draggable.text()).addClass("itemList").appendTo(this);
+                $( "<div data-item=" + ui.draggable.data("item")+ "></div>" ).text(ui.draggable.text()).addClass("itemList").appendTo($("#cart fieldset"));
             }
         });
     });
@@ -94,13 +94,9 @@ $(document).ready(function() {
         var jsonstring = "{\"tasksjson\":"+JSON.stringify(tasks) + "}";
         $.ajax({
             type : "POST",
-            url :  '/tasks/create',
-            dataType: 'json',
+            url :  '/tasks/create.js',
             contentType: 'application/json',
-            data : jsonstring,
-            success: function(msg) {
-              alert("good");
-            }
+            data : jsonstring
           });
     });
 });
