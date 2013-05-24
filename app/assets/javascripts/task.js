@@ -63,10 +63,34 @@ $(document).ready(function() {
 	        });
 		}
     });
+
     $('#myTab a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
     });
+
+    $(".itemList").on('dblclick', function(){
+        cartridge = $('#cart [data-item="' + $(this).data("item") + '"]');
+        if (cartridge.length) {
+            
+            if (!cartridge.next().is('span')){
+                cartridge.wrap('<div />');
+                cartridge.addClass("inline_class");
+                cartridge.after($('<input class="spinner" name="value" />'));
+                
+                quantity = cartridge.next().spinner();
+                quantity.spinner('value', 2);
+            }
+            else {
+                quantity = $(cartridge.next().children()[0]).spinner();
+                quantity.spinner('value', quantity.spinner('value') + 1 );
+            }
+        }
+        else {
+            $( "<div data-item=" + $(this).data("item")+ "></div>" ).text($(this).text()).addClass("itemList").appendTo($("#cart fieldset"));
+        }
+    });
+
     $(function() {
         $(".itemList").draggable({
             appendTo: ".modal-body",
