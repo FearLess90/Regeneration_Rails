@@ -74,7 +74,7 @@ $(document).ready(function() {
         if (cartridge.length) {
             
             if (!cartridge.next().is('span')){
-                cartridge.wrap('<div />');
+                cartridge.wrap('<div class="cartridge-item" />');
                 cartridge.addClass("inline_class");
                 cartridge.after($('<input class="spinner" name="value" />'));
                 
@@ -100,14 +100,29 @@ $(document).ready(function() {
             accept: ".itemList",
             drop: function(event, ui) {
                 test = ui.draggable;
-                $( "<div data-item=" + ui.draggable.data("item")+ "></div>" ).text(ui.draggable.text()).addClass("itemList").appendTo($("#cart fieldset"));
+                cartridge = $('#cart [data-item="' + ui.draggable.data("item") + '"]');                    
+                    if (!cartridge.next().is('span')){
+                        $( "<div data-item=" + ui.draggable.data("item")+ "></div>" ).text(ui.draggable.text()).addClass("itemList").appendTo($("#cart fieldset"));
+                        cartridge.wrap('<div class="cartridge-item" />');
+                        cartridge.addClass("inline_class");
+                        cartridge.after($('<input class="spinner" name="value" />'));
+                        quantity = cartridge.next().spinner();
+                        quantity.spinner('value', 2);
+                    }
+                    else {
+                        quantity = $(cartridge.next().children()[0]).spinner();
+                        quantity.spinner('value', quantity.spinner('value') + 1 );
+                    }
+
             }
         });
     });
 
     $(document).on('click','#submit-task', function(){
         tasks = [];
-        $("#cart div").each(function( index ) {
+        $("#cart .cartridge-item").each(function( index ) {
+            alert($(this).find('.spinner').val());
+            console.log($(this));
             var task = new Object();
             task.cartridgeId = $(this).data("item");
             task.completitionDate = $("#dp3 input").val();
@@ -115,12 +130,12 @@ $(document).ready(function() {
             task.checkinDate = now; 
             tasks.push(task);
         });
-        var jsonstring = "{\"tasksjson\":"+JSON.stringify(tasks) + "}";
-        $.ajax({
-            type : "POST",
-            url :  '/tasks/create.js',
-            contentType: 'application/json',
-            data : jsonstring
-          });
+        // var jsonstring = "{\"tasksjson\":"+JSON.stringify(tasks) + "}";
+        // $.ajax({
+        //     type : "POST",
+        //     url :  '/tasks/create.js',
+        //     contentType: 'application/json',
+        //     data : jsonstring
+        //   });
     });
 });
