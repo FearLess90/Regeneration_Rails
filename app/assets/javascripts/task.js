@@ -117,12 +117,11 @@ $(document).ready(function() {
             var cartridge_quantity = $(this).find('.spinner').val();
             for (var i=0; i<cartridge_quantity; i++) {
                 var task = new Object();
-                task.cartridgeId = $(this).data("item");
+                task.cartridgeId = $(this).children().first().data("item");
                 task.completitionDate = $("#dp3 input").val();
                 task.clientId = $("dl dd").first().text();
                 task.checkinDate = now; 
                 tasks.push(task);
-                console.log(tasks);
             }
         });
         var jsonstring = "{\"tasksjson\":"+JSON.stringify(tasks) + "}";

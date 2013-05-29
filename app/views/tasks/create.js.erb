@@ -1,3 +1,4 @@
 $('#new-task').modal('hide');
 alert("<%= @result %>");
+$('#cart fieldset div').remove();
 $("#tasks").html("<%= escape_javascript(render @tasks) %>");
