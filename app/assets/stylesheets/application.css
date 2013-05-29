@@ -14,24 +14,4 @@
  *= require_tree .
  */
 
-.header {
-    background-image: url('bg.gif');
-    background-repeat: no-repeat;
-    background-position: center right;
-    cursor: pointer;
-}
-
-.headerSortUp{
-    background-image: url('asc.gif');
-    background-repeat: no-repeat;
-    background-position: center right;
-    cursor: pointer;
-}
-
-.headerSortDown{
-    background-image: url('desc.gif');
-    background-repeat: no-repeat;
-    background-position: center right;
-    cursor: pointer;
-}
 

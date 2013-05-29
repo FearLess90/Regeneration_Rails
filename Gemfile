@@ -16,21 +16,21 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem "therubyracer"
   gem "less-rails"
-  gem 'twitter-bootstrap-rails'
-  gem 'simple_form'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+ gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
 gem "sorting_table_for", '~> 0.3.0'
 gem 'gon'
+gem 'simple_form'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -45,4 +45,4 @@ gem 'gon'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'

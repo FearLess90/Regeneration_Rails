@@ -1,9 +1,33 @@
 @import "twitter/bootstrap/bootstrap";
 
-tr:hover td {
-  cursor: pointer;
-  background-color: rgb(224, 224, 224) !important;
+.HeaderImg(@url) {
+	background-image: url(@url);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
 }
+
+tr{
+  &:hover {
+  	td{
+  		cursor: pointer;
+  		background-color: rgb(224, 224, 224) !important;
+  	}
+  }
+}
+
+.header {
+    .HeaderImg('bg.gif');
+}
+
+.headerSortUp{
+    .HeaderImg('asc.gif');
+}
+
+.headerSortDown{
+    .HeaderImg('desc.gif');
+}
+
 
 .make-logo {
 	float:right;
@@ -44,7 +68,6 @@ tr:hover td {
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
 	font-size:7pt !important;
 }
-
 
 @import "twitter/bootstrap/responsive";
 
